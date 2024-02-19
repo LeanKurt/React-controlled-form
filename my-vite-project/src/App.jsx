@@ -20,6 +20,12 @@ function App() {
     );
   }
 
+  const EmailErrorMessage = () => {
+     return (
+      <p className="FieldError">Email is Invalid</p>
+     );
+  }
+
   const getIsFormValid = () => {
     // Implement this function
     return ( 
@@ -69,6 +75,9 @@ function App() {
               Email address <sup>*</sup>
             </label>
             <input placeholder="Email address" id ="id" value={email} onChange = {e => setEmail(e.target.value)}/>
+            {!validateEmail(email) ? (
+               <EmailErrorMessage />
+            ) : null}
           </div>
           <div className="Field">
             <label htmlFor="password">
