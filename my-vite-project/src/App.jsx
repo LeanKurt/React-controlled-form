@@ -40,7 +40,10 @@ function App() {
     e.preventDefault();
      setFirstName("");
      setLastName("");
-     setEmail("");
+     setEmail({
+      value : "",
+      isType: null,
+     });
      setPassword({
       value: "",
       isTouched: false,
@@ -74,7 +77,9 @@ function App() {
             <label htmlFor="email">
               Email address <sup>*</sup>
             </label>
-            <input placeholder="Email address" id ="id" value={email} onChange = {e => setEmail(e.target.value)}/>
+            <input placeholder="Email address" id ="id" value={email} 
+            onChange = {(e) => setEmail( e.target.value)}
+             />
             {!validateEmail(email) ? (
                <EmailErrorMessage />
             ) : null}
